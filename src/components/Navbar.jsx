@@ -23,9 +23,9 @@ function Navbar () {
 
 
   return (
-    <div className=' w-full  bg-gray-50 flex flex-col z-20 relative'>
+    <div className=' w-full  bg-gray-50 flex flex-col z-20 relative overflow-hidden'>
       <div className='h-2/3 px-12 p-6'>{headerTitle}</div>
-      <nav className='bg-[#ffe353] h-1/3 flex justify-between px-12 py-2'>
+      <nav className='bg-[#ffe353] h-1/3 flex justify-between px-10 md:px-12 py-2'>
       <Link href='/'>
       
         <div>movie app</div>
