@@ -33,25 +33,26 @@ console.log(movies)
                 className='w-full h-auto rounded'
               />
               <div className='flex justify-between mt-2'>
-                <div>
-              <h2 className='mt-2 text-center font-semibold text-sm'>
+                <div className='flex flex-col gap-2'>
+              <h2 className='mt-2 text-center font-semibold text-sm '>
                 {movie.title}
               </h2>
               <p>{movie.release_date}</p>
 </div>
+<div className='p-2'>
               {isInWishlist ? (
                 <Image
                   src='/3d-yellow-heart.png'
                   alt=''
-                  width={24}
-                  height={24}
+                  width={35}
+                  height={35}
                   onClick={() => dispatch(toggleWishlist(movie))}
                   className={` ${isInWishlist ? '' : 'bg-gray-500'}`}
                 />
               ) : (
                 <Image
                   src='/like-heart.png'
-                  className='cursor-pointer'
+                  className='cursor-pointer mt-2'
                   alt=''
                   width={24}
                   height={24}
@@ -59,6 +60,9 @@ console.log(movies)
                 />
               )}
             </div>
+
+            </div>
+            
       </div>
           )
         })}
