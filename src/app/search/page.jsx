@@ -6,6 +6,7 @@ import MovieCard from '@/components/MovieCard';
 import axios from 'axios';
 import SearchInput from '@/components/SearchInput';
 import Pagination from '@/components/Pagination';
+import { Suspense } from 'react';
 
 const API_KEY = '5091181a365237d10571ebee61bf12ed';
 
@@ -41,9 +42,9 @@ export default function SearchPage() {
   }, [query, page]);
 
   return (
+    <Suspense fallback={<p className="p-8">Loading search page...</p>}>
     <div className="p-8">
       <SearchInput />
-
       <h1 className="text-xl font-bold mb-4">Search results for "{query}"</h1>
 
       {status === 'loading' && <p>Loading...</p>}
@@ -59,10 +60,11 @@ export default function SearchPage() {
       {totalPages > 1 && (
         <Pagination
           currentPage={page}
-          totalPages={Math.min(totalPages, 10)} // limit max pages for now
+          totalPages={Math.min(totalPages, 10)}
           onPageChange={setPage}
         />
       )}
     </div>
+  </Suspense>
   );
 }
