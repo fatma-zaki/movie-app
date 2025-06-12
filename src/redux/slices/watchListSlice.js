@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const wishlistSlice = createSlice({
   name: 'wishlist',
   initialState: {
-    items: [], // array of movie objects
+    items: [], 
   },
   reducers: {
     toggleWishlist: (state, action) => {
@@ -11,10 +11,10 @@ const wishlistSlice = createSlice({
       const exists = state.items.find((item) => item.id === movie.id);
 
       if (exists) {
-        // remove from wishlist
+       
         state.items = state.items.filter((item) => item.id !== movie.id);
       } else {
-        // add to wishlist
+       
         state.items.push(movie);
       }
     },
