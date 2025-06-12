@@ -108,7 +108,7 @@ export default function MovieDetailsPage() {
       {/* Recommendations */}
       <div>
         <h2 className="text-2xl font-bold mb-4">Recommendations</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4">
           {recommendations.map((rec) => (
             <MovieCard key={rec.id} movie={rec} />
           ))}

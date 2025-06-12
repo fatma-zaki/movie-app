@@ -6,20 +6,25 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchNowPlayingMovies } from '../../redux/slices/slice'
 import { toggleWishlist } from '@/redux/slices/watchListSlice'
 import Link from 'next/link'
+import Pagination from '@/components/Pagination'
 
 export default function Movies () {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch()
   const { movies, status, error } = useSelector(state => state.movies)
   const wishlist = useSelector(state => state.wishlist.items)
+
+
 console.log(movies)
   useEffect(() => {
     dispatch(fetchNowPlayingMovies())
   }, [dispatch])
+
+
 useEffect(() => {
   dispatch(fetchNowPlayingMovies(page));
 }, [dispatch, page]);
-
+ 
 useEffect(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }, [page]);
@@ -78,7 +83,7 @@ useEffect(() => {
         })}
       </div>
       <div className="flex justify-center gap-4 mt-8">
-  <button
+  {/* <button
     disabled={page === 1}
     onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
     className="px-4 py-2 bg-gray-300 rounded disabled:opacity-50"
@@ -90,7 +95,8 @@ useEffect(() => {
     className="px-4 py-2 bg-yellow-400 rounded"
   >
     Next
-  </button>
+  </button> */}
+  <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
 </div>
 
     </div>
